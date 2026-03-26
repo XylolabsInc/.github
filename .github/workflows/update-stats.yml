@@ -15,116 +15,260 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Collect org stats
+      - name: Collect org stats and generate visualizations
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.ORG_TOKEN }}
           script: |
             const fs = require('fs');
+            const path = require('path');
 
             const org = 'XylolabsInc';
 
+            // Non-programming languages to exclude
+            const EXCLUDED_LANGS = new Set([
+              'HTML', 'Markdown', 'CSS', 'SCSS', 'Less', 'Sass',
+              'JSON', 'YAML', 'TOML', 'XML', 'SVG',
+              'Dockerfile', 'Makefile', 'CMake',
+              'Rich Text Format', 'Roff', 'TeX', 'Batchfile',
+              'Nix', 'Starlark', 'Procfile',
+            ]);
+
+            // Color palette for languages
+            const LANG_COLORS = {
+              TypeScript: '#3178c6', JavaScript: '#f1e05a', Rust: '#dea584',
+              Go: '#00add8', Python: '#3572a5', C: '#555555', 'C++': '#f34b7d',
+              Java: '#b07219', Ruby: '#701516', Swift: '#f05138',
+              Kotlin: '#a97bff', Dart: '#00b4ab', Shell: '#89e051',
+              Lua: '#000080', Zig: '#ec915c', Elixir: '#6e4a7e',
+              Haskell: '#5e5086', Scala: '#c22d40', PHP: '#4f5d95',
+              'C#': '#178600', 'Objective-C': '#438eff', R: '#198ce7',
+              Perl: '#0298c3', SQL: '#e38c00', GLSL: '#5686a5',
+              Assembly: '#6e4c13', Jupyter: '#f37626', PLpgSQL: '#336790',
+            };
+            const DEFAULT_COLOR = '#8b8b8b';
+
+            // Contributor colors
+            const CONTRIB_COLORS = [
+              '#3178c6', '#dea584', '#00add8', '#3572a5', '#f05138',
+              '#a97bff', '#f1e05a', '#6e4a7e', '#c22d40', '#178600',
+            ];
+
             // Fetch all repos
             const repos = await github.paginate(github.rest.repos.listForOrg, {
-              org,
-              type: 'all',
-              per_page: 100,
+              org, type: 'all', per_page: 100,
             });
 
-            let totalLoc = 0;
             let totalRepos = repos.length;
             let publicRepos = repos.filter(r => !r.private).length;
             let privateRepos = repos.filter(r => r.private).length;
             const languageBytes = {};
-            const contributors = new Set();
-            let totalCommits = 0;
+            const contributorData = {}; // login -> { additions, deletions, commits, avatar }
             let recentCommits = 0;
             const now = new Date();
             const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000);
 
             for (const repo of repos) {
-              // Languages (bytes of code as LOC proxy)
+              // Languages
               try {
                 const { data: langs } = await github.rest.repos.listLanguages({
-                  owner: org,
-                  repo: repo.name,
+                  owner: org, repo: repo.name,
                 });
                 for (const [lang, bytes] of Object.entries(langs)) {
-                  languageBytes[lang] = (languageBytes[lang] || 0) + bytes;
-                  totalLoc += bytes;
+                  if (!EXCLUDED_LANGS.has(lang)) {
+                    languageBytes[lang] = (languageBytes[lang] || 0) + bytes;
+                  }
                 }
-              } catch (e) {
-                // skip if no access
-              }
+              } catch (e) {}
 
-              // Contributors
+              // Contributor stats (additions/deletions per contributor)
               try {
-                const contribs = await github.paginate(github.rest.repos.listContributors, {
-                  owner: org,
-                  repo: repo.name,
-                  per_page: 100,
-                });
-                for (const c of contribs) {
-                  if (c.login) contributors.add(c.login);
-                  totalCommits += c.contributions || 0;
+                let retries = 3;
+                let stats = null;
+                while (retries > 0) {
+                  const resp = await github.rest.repos.getContributorsStats({
+                    owner: org, repo: repo.name,
+                  });
+                  if (resp.status === 200 && Array.isArray(resp.data)) {
+                    stats = resp.data;
+                    break;
+                  }
+                  // 202 means stats are being computed, retry
+                  retries--;
+                  if (retries > 0) await new Promise(r => setTimeout(r, 2000));
                 }
-              } catch (e) {
-                // skip
-              }
+                if (stats) {
+                  for (const contributor of stats) {
+                    const login = contributor.author?.login;
+                    if (!login) continue;
+                    if (login.includes('[bot]') || login === 'dependabot' || login === 'github-actions') continue;
+                    if (!contributorData[login]) {
+                      contributorData[login] = {
+                        additions: 0, deletions: 0, commits: 0,
+                        avatar: contributor.author?.avatar_url || '',
+                      };
+                    }
+                    for (const week of contributor.weeks) {
+                      contributorData[login].additions += week.a || 0;
+                      contributorData[login].deletions += week.d || 0;
+                      contributorData[login].commits += week.c || 0;
+                    }
+                  }
+                }
+              } catch (e) {}
 
-              // Recent commit activity (last 30 days)
+              // Recent commit activity
               try {
                 const { data: activity } = await github.rest.repos.getCommitActivityStats({
-                  owner: org,
-                  repo: repo.name,
+                  owner: org, repo: repo.name,
                 });
                 if (Array.isArray(activity)) {
-                  const recent = activity.slice(-5); // last ~5 weeks
-                  for (const week of recent) {
-                    const weekDate = new Date(week.week * 1000);
-                    if (weekDate >= thirtyDaysAgo) {
+                  for (const week of activity.slice(-5)) {
+                    if (new Date(week.week * 1000) >= thirtyDaysAgo) {
                       recentCommits += week.total;
                     }
                   }
                 }
-              } catch (e) {
-                // stats may not be ready
-              }
+              } catch (e) {}
             }
 
-            // Top languages by bytes
-            const sortedLangs = Object.entries(languageBytes)
-              .sort((a, b) => b[1] - a[1])
-              .slice(0, 8);
-            const totalBytes = Object.values(languageBytes).reduce((a, b) => a + b, 0);
-
-            // Format LOC estimate (bytes / ~40 as rough LOC estimate)
-            const estimatedLoc = Math.round(totalBytes / 40);
+            // --- Helpers ---
             function formatNum(n) {
               if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
               if (n >= 1_000) return (n / 1_000).toFixed(1) + 'K';
               return n.toString();
             }
 
-            // Build language bar
-            const langBar = sortedLangs.map(([lang, bytes]) => {
-              const pct = ((bytes / totalBytes) * 100).toFixed(1);
-              return `\`${lang}\` ${pct}%`;
-            }).join(' · ');
+            function escapeXml(s) {
+              return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
 
-            // Build stats section
+            // --- Language SVG ---
+            const sortedLangs = Object.entries(languageBytes)
+              .sort((a, b) => b[1] - a[1])
+              .slice(0, 10);
+            const totalBytes = sortedLangs.reduce((a, [, b]) => a + b, 0);
+            const estimatedLoc = Math.round(
+              Object.values(languageBytes).reduce((a, b) => a + b, 0) / 40
+            );
+
+            function generateLanguageSvg() {
+              const barWidth = 400;
+              const rowHeight = 32;
+              const labelWidth = 110;
+              const valueWidth = 70;
+              const chartLeft = labelWidth + 8;
+              const chartWidth = barWidth - chartLeft - valueWidth;
+              const height = sortedLangs.length * rowHeight + 20;
+              const maxBytes = sortedLangs[0]?.[1] || 1;
+
+              let rows = '';
+              sortedLangs.forEach(([lang, bytes], i) => {
+                const y = i * rowHeight + 16;
+                const pct = ((bytes / totalBytes) * 100).toFixed(1);
+                const w = Math.max(2, (bytes / maxBytes) * chartWidth);
+                const color = LANG_COLORS[lang] || DEFAULT_COLOR;
+                const loc = formatNum(Math.round(bytes / 40));
+                rows += `
+                  <text x="${labelWidth}" y="${y}" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">${escapeXml(lang)}</text>
+                  <rect x="${chartLeft}" y="${y - 10}" width="${w}" height="14" rx="3" fill="${color}" opacity="0.9"/>
+                  <text x="${chartLeft + w + 6}" y="${y}" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">${loc} (${pct}%)</text>`;
+              });
+
+              return `<svg xmlns="http://www.w3.org/2000/svg" width="${barWidth}" height="${height}" viewBox="0 0 ${barWidth} ${height}">
+                <style>text { dominant-baseline: central; }</style>
+                <rect width="100%" height="100%" rx="6" fill="#0d1117"/>
+                ${rows}
+              </svg>`;
+            }
+
+            // --- Contributor SVG ---
+            const sortedContribs = Object.entries(contributorData)
+              .map(([login, d]) => ({ login, net: d.additions - d.deletions, additions: d.additions, deletions: d.deletions, commits: d.commits }))
+              .sort((a, b) => b.net - a.net);
+
+            function generateContributorSvg() {
+              const barWidth = 440;
+              const rowHeight = 36;
+              const labelWidth = 120;
+              const valueWidth = 100;
+              const chartLeft = labelWidth + 8;
+              const chartWidth = barWidth - chartLeft - valueWidth;
+              const height = sortedContribs.length * rowHeight + 20;
+              const maxNet = sortedContribs[0]?.net || 1;
+
+              let rows = '';
+              sortedContribs.forEach((c, i) => {
+                const y = i * rowHeight + 18;
+                const w = Math.max(2, (c.net / maxNet) * chartWidth);
+                const color = CONTRIB_COLORS[i % CONTRIB_COLORS.length];
+                const netLoc = formatNum(c.net);
+                const addLoc = formatNum(c.additions);
+                const delLoc = formatNum(c.deletions);
+                rows += `
+                  <text x="${labelWidth}" y="${y}" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="600">${escapeXml(c.login)}</text>
+                  <rect x="${chartLeft}" y="${y - 10}" width="${w}" height="14" rx="3" fill="${color}" opacity="0.85"/>
+                  <text x="${chartLeft + w + 6}" y="${y - 2}" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">${netLoc} net</text>
+                  <text x="${chartLeft + w + 6}" y="${y + 10}" fill="#3fb950" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">+${addLoc}</text>
+                  <text x="${chartLeft + w + 50}" y="${y + 10}" fill="#f85149" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">-${delLoc}</text>`;
+              });
+
+              return `<svg xmlns="http://www.w3.org/2000/svg" width="${barWidth}" height="${height}" viewBox="0 0 ${barWidth} ${height}">
+                <style>text { dominant-baseline: central; }</style>
+                <rect width="100%" height="100%" rx="6" fill="#0d1117"/>
+                ${rows}
+              </svg>`;
+            }
+
+            // --- Stacked language bar SVG (compact) ---
+            function generateLangBarSvg() {
+              const width = 480;
+              const height = 16;
+              let x = 0;
+              let rects = '';
+              for (const [lang, bytes] of sortedLangs) {
+                const w = Math.max(1, (bytes / totalBytes) * width);
+                const color = LANG_COLORS[lang] || DEFAULT_COLOR;
+                const rx = x === 0 ? 'rx="4"' : '';
+                rects += `<rect x="${x}" y="0" width="${w}" height="${height}" fill="${color}" ${rx}/>`;
+                x += w;
+              }
+              // round right edge
+              return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+                <clipPath id="r"><rect width="${width}" height="${height}" rx="4"/></clipPath>
+                <g clip-path="url(#r)">${rects}</g>
+              </svg>`;
+            }
+
+            // Write SVGs
+            fs.mkdirSync('profile/assets', { recursive: true });
+            fs.writeFileSync('profile/assets/languages.svg', generateLanguageSvg());
+            fs.writeFileSync('profile/assets/contributors.svg', generateContributorSvg());
+            fs.writeFileSync('profile/assets/langbar.svg', generateLangBarSvg());
+
+            // --- Build stats markdown ---
             const statsDate = now.toISOString().split('T')[0];
+            const contributorCount = Object.keys(contributorData).length || sortedContribs.length;
+
             const stats = [
               '',
               `| Metric | Value |`,
               `|--------|-------|`,
               `| **Repositories** | ${totalRepos} (${publicRepos} public, ${privateRepos} private) |`,
               `| **Estimated LOC** | ${formatNum(estimatedLoc)} |`,
-              `| **Total Commits** | ${formatNum(totalCommits)} |`,
+              `| **Total Commits** | ${formatNum(Object.values(contributorData).reduce((a, d) => a + d.commits, 0))} |`,
               `| **Commits (30d)** | ${formatNum(recentCommits)} |`,
-              `| **Contributors** | ${contributors.size} |`,
+              `| **Contributors** | ${contributorCount} |`,
               '',
-              `**Languages:** ${langBar}`,
+              `#### Languages`,
+              '',
+              `![Language Bar](assets/langbar.svg)`,
+              '',
+              `![Languages](assets/languages.svg)`,
+              '',
+              `#### Contributor Insights`,
+              '',
+              `![Contributors](assets/contributors.svg)`,
               '',
               `<sub>Last updated: ${statsDate}</sub>`,
               '',
@@ -138,14 +282,17 @@ jobs:
               `<!-- STATS_START -->\n${stats}<!-- STATS_END -->`
             );
             fs.writeFileSync(readmePath, readme);
+
             console.log('Stats updated successfully');
-            console.log(`Repos: ${totalRepos}, LOC: ${formatNum(estimatedLoc)}, Contributors: ${contributors.size}`);
+            console.log(`Repos: ${totalRepos}, LOC: ${formatNum(estimatedLoc)}, Contributors: ${contributorCount}`);
+            console.log(`Languages: ${sortedLangs.map(([l]) => l).join(', ')}`);
+            console.log(`Contributors: ${sortedContribs.map(c => `${c.login} (net ${formatNum(c.net)})`).join(', ')}`);
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add profile/README.md
+          git add profile/
           git diff --staged --quiet && echo "No changes" && exit 0
           git commit -m "chore: 📊 update organization stats"
           git push
