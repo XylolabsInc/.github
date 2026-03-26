@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="56" viewBox="0 0 440 56">
+    <style>text { dominant-baseline: central; }</style>
+    <rect width="100%" height="100%" rx="6" fill="#0d1117"/>
+    
+      <text x="120" y="18" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="600">hletrd</text>
+      <rect x="128" y="8" width="212" height="14" rx="3" fill="#3178c6" opacity="0.85"/>
+      <text x="346" y="16" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">16.1K net</text>
+      <text x="346" y="28" fill="#3fb950" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">+21.1K</text>
+      <text x="390" y="28" fill="#f85149" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">-5.0K</text>
+  </svg>

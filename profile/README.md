@@ -18,13 +18,21 @@ We build systems that collect, process, and act on data from industrial environm
 
 | Metric | Value |
 |--------|-------|
-| **Repositories** | 10 (3 public, 7 private) |
-| **Estimated LOC** | 132.7K |
-| **Total Commits** | 1.0K |
-| **Commits (30d)** | 19 |
-| **Contributors** | 3 |
+| **Repositories** | 9 (2 public, 7 private) |
+| **Estimated LOC** | 117.4K |
+| **Total Commits** | 19 |
+| **Commits (30d)** | 132 |
+| **Contributors** | 1 |
 
-**Languages:** `TypeScript` 27.5% · `Rust` 20.2% · `Go` 14.1% · `Python` 12.2% · `C` 10.2% · `HTML` 9.2% · `Shell` 2.5% · `JavaScript` 1.7%
+#### Languages
+
+![Language Bar](assets/langbar.svg)
+
+![Languages](assets/languages.svg)
+
+#### Contributor Insights
+
+![Contributors](assets/contributors.svg)
 
 <sub>Last updated: 2026-03-26</sub>
 <!-- STATS_END -->
