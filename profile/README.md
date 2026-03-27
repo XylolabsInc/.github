@@ -18,10 +18,10 @@ We build systems that collect, process, and act on data from industrial environm
 
 | Metric | Value |
 |--------|-------|
-| **Repositories** | 9 (2 public, 7 private) |
-| **Estimated LOC** | 117.4K |
-| **Total Commits** | 1.0K |
-| **Commits (30d)** | 113 |
+| **Repositories** | 11 (2 public, 9 private) |
+| **Estimated LOC** | 178.6K |
+| **Total Commits** | 1.5K |
+| **Commits (30d)** | 108 |
 | **Contributors** | 2 |
 
 #### Languages
@@ -34,7 +34,7 @@ We build systems that collect, process, and act on data from industrial environm
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-03-26</sub>
+<sub>Last updated: 2026-03-27</sub>
 <!-- STATS_END -->
 
 ---
