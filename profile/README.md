@@ -21,8 +21,8 @@ We build systems that collect, process, and act on data from industrial environm
 | **Repositories** | 16 (2 public, 14 private) |
 | **Estimated LOC** | 181.2K |
 | **Total Commits** | 1.2K |
-| **Commits (30d)** | 0 |
-| **Contributors** | 1 |
+| **Commits (30d)** | 614 |
+| **Contributors** | 2 |
 
 #### Languages
 
