@@ -25,6 +25,9 @@ jobs:
 
             const org = 'XylolabsInc';
 
+            // Only include these organization members
+            const ORG_MEMBERS = new Set(['hletrd', 'angoang']);
+
             // Non-programming languages to exclude
             const EXCLUDED_LANGS = new Set([
               'HTML', 'Markdown', 'CSS', 'SCSS', 'Less', 'Sass',
@@ -103,6 +106,7 @@ jobs:
                     const login = contributor.author?.login;
                     if (!login) continue;
                     if (login.includes('[bot]') || login === 'dependabot' || login === 'github-actions') continue;
+                    if (!ORG_MEMBERS.has(login)) continue;
                     if (!contributorData[login]) {
                       contributorData[login] = {
                         additions: 0, deletions: 0, commits: 0,
@@ -124,7 +128,7 @@ jobs:
                   owner: org, repo: repo.name, per_page: 100,
                 });
                 for (const c of contribs) {
-                  if (c.login && !c.login.includes('[bot]') && c.login !== 'dependabot' && c.login !== 'github-actions') {
+                  if (c.login && !c.login.includes('[bot]') && c.login !== 'dependabot' && c.login !== 'github-actions' && ORG_MEMBERS.has(c.login)) {
                     totalCommits += c.contributions || 0;
                   }
                 }
