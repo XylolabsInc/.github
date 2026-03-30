@@ -199,6 +199,13 @@ jobs:
               </svg>`;
             }
 
+            // Ensure all org members appear even if Stats API missed them
+            for (const member of ORG_MEMBERS) {
+              if (!contributorData[member]) {
+                contributorData[member] = { additions: 0, deletions: 0, commits: 0, avatar: '' };
+              }
+            }
+
             // --- Contributor SVG ---
             const sortedContribs = Object.entries(contributorData)
               .map(([login, d]) => ({ login, net: d.additions - d.deletions, additions: d.additions, deletions: d.deletions, commits: d.commits }))
