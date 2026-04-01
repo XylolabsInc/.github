@@ -1,5 +1,9 @@
 <div align="center">
-  <img src="assets/logo.svg" width="100" alt="Xylolabs" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/mark_dark.png" />
+    <source media="(prefers-color-scheme: light)" srcset="assets/mark_light.png" />
+    <img src="assets/mark_light.png" width="80" alt="Xylolabs" />
+  </picture>
   <h1>Xylolabs Inc.</h1>
   <p><strong>Industrial intelligence through real-time monitoring, edge computing, and AI-driven analytics.</strong></p>
   <p>We build systems that collect, process, and act on data from industrial environments —<br/>power plants, container terminals, maritime vessels, and factories.</p>
