@@ -396,4 +396,5 @@ jobs:
           git add profile/
           git diff --staged --quiet && echo "No changes" && exit 0
           git commit -m "chore: update organization stats"
+          git pull --rebase origin main
           git push
