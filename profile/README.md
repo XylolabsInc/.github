@@ -57,8 +57,8 @@
 |--------|-------|
 | **Repositories** | 19 (2 public, 17 private) |
 | **Estimated LOC** | 1.0M |
-| **Total Commits** | 1.6K |
-| **Commits (30d)** | 0 |
+| **Total Commits** | 1.7K |
+| **Commits (30d)** | 239 |
 | **Contributors** | 2 |
 
 #### Languages
@@ -71,7 +71,7 @@
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-04-06</sub>
+<sub>Last updated: 2026-04-07</sub>
 <!-- STATS_END -->
 
 ---
