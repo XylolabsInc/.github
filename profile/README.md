@@ -56,9 +56,9 @@
 | Metric | Value |
 |--------|-------|
 | **Repositories** | 19 (2 public, 17 private) |
-| **Estimated LOC** | 1.0M |
+| **Estimated LOC** | 1.1M |
 | **Total Commits** | 1.8K |
-| **Commits (30d)** | 289 |
+| **Commits (30d)** | 3 |
 | **Contributors** | 2 |
 
 #### Languages
@@ -71,7 +71,7 @@
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-04-09</sub>
+<sub>Last updated: 2026-04-10</sub>
 <!-- STATS_END -->
 
 ---
