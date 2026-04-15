@@ -45,7 +45,7 @@
 | [**.github**](https://github.com/XylolabsInc/.github) |  |  |
 | [**Xylolabs-Knowledge-Engine**](https://github.com/XylolabsInc/Xylolabs-Knowledge-Engine) | Unified Knowledge Base Engine — continuously ingests Slack, Google Workspace, and Notion into a searchable AI-powered knowledge base with a Slack bot interface | `Go` |
 
-<sub>19 private repositories not shown</sub>
+<sub>20 private repositories not shown</sub>
 
 <!-- REPOS_END -->
 
@@ -55,10 +55,10 @@
 
 | Metric | Value |
 |--------|-------|
-| **Repositories** | 21 (2 public, 19 private) |
+| **Repositories** | 22 (2 public, 20 private) |
 | **Estimated LOC** | 1.1M |
 | **Total Commits** | 2.3K |
-| **Commits (30d)** | 697 |
+| **Commits (30d)** | 332 |
 | **Contributors** | 2 |
 
 #### Languages
@@ -71,7 +71,7 @@
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-04-14</sub>
+<sub>Last updated: 2026-04-15</sub>
 <!-- STATS_END -->
 
 ---
