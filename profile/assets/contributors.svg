@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="92" viewBox="0 0 440 92">
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="128" viewBox="0 0 440 128">
     <style>text { dominant-baseline: central; }</style>
     <rect width="100%" height="100%" rx="6" fill="#0d1117"/>
     
       <text x="120" y="18" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="600">hletrd</text>
       <rect x="128" y="8" width="2" height="14" rx="3" fill="#3178c6" opacity="0.85"/>
-      <text x="136" y="16" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">2.9K commits · 0 net</text>
+      <text x="136" y="16" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">3.0K commits · 0 net</text>
       <text x="136" y="28" fill="#3fb950" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">+0</text>
       <text x="180" y="28" fill="#f85149" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">-0</text>
       <text x="120" y="54" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="600">angoang</text>
@@ -12,4 +12,9 @@
       <text x="136" y="52" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">19 commits · 0 net</text>
       <text x="136" y="64" fill="#3fb950" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">+0</text>
       <text x="180" y="64" fill="#f85149" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">-0</text>
+      <text x="120" y="90" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="600">gamsasyo</text>
+      <rect x="128" y="80" width="2" height="14" rx="3" fill="#00add8" opacity="0.85"/>
+      <text x="136" y="88" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">10 commits · 0 net</text>
+      <text x="136" y="100" fill="#3fb950" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">+0</text>
+      <text x="180" y="100" fill="#f85149" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">-0</text>
   </svg>
