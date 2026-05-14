@@ -71,7 +71,7 @@
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-05-13</sub>
+<sub>Last updated: 2026-05-14</sub>
 <!-- STATS_END -->
 
 ---
