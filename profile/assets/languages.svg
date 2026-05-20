@@ -4,13 +4,13 @@
     
       <text x="110" y="16" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">TypeScript</text>
       <rect x="118" y="6" width="212" height="14" rx="3" fill="#3178c6" opacity="0.9"/>
-      <text x="336" y="16" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">930.5K (73.2%)</text>
+      <text x="336" y="16" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">930.5K (73.0%)</text>
       <text x="110" y="48" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Rust</text>
-      <rect x="118" y="38" width="34.54554348004227" height="14" rx="3" fill="#dea584" opacity="0.9"/>
-      <text x="158.54554348004228" y="48" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">151.6K (11.9%)</text>
+      <rect x="118" y="38" width="35.20735553423512" height="14" rx="3" fill="#dea584" opacity="0.9"/>
+      <text x="159.20735553423512" y="48" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">154.5K (12.1%)</text>
       <text x="110" y="80" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Python</text>
       <rect x="118" y="70" width="18.129565257341337" height="14" rx="3" fill="#3572a5" opacity="0.9"/>
-      <text x="142.12956525734134" y="80" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">79.6K (6.3%)</text>
+      <text x="142.12956525734134" y="80" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">79.6K (6.2%)</text>
       <text x="110" y="112" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">JavaScript</text>
       <rect x="118" y="102" width="7.0169689157104935" height="14" rx="3" fill="#f1e05a" opacity="0.9"/>
       <text x="131.0169689157105" y="112" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">30.8K (2.4%)</text>
