@@ -148,40 +148,68 @@ jobs:
                 }
               }
 
-              // 3. getContributorsStats — ENRICHMENT for additions/deletions only
-              //    This API is lazily computed and often returns 202; retry with backoff
+              // 3. GraphQL commit history — ENRICHMENT for additions/deletions
+              //    Replaces getContributorsStats (REST), which is lazily computed and
+              //    frequently returns 202 with empty data, leaving net LOC stuck at 0.
+              //    GraphQL returns per-commit additions/deletions synchronously.
               try {
-                let retries = 5;
-                let stats = null;
-                while (retries > 0) {
-                  const resp = await github.rest.repos.getContributorsStats({
-                    owner: org, repo: repo.name,
-                  });
-                  if (resp.status === 200 && Array.isArray(resp.data)) {
-                    stats = resp.data;
-                    break;
-                  }
-                  // 202 = stats being computed, retry after backoff
-                  retries--;
-                  if (retries > 0) await new Promise(r => setTimeout(r, 3000));
-                }
-                if (stats) {
-                  for (const s of stats) {
-                    const login = s.author?.login;
+                let cursor = null;
+                let hasNext = true;
+                let pages = 0;
+                while (hasNext) {
+                  const result = await github.graphql(`
+                    query($owner: String!, $repo: String!, $cursor: String) {
+                      repository(owner: $owner, name: $repo) {
+                        defaultBranchRef {
+                          target {
+                            ... on Commit {
+                              history(first: 100, after: $cursor) {
+                                pageInfo { hasNextPage endCursor }
+                                nodes {
+                                  additions
+                                  deletions
+                                  author {
+                                    user { login avatarUrl }
+                                    email
+                                    name
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  `, { owner: org, repo: repo.name, cursor });
+
+                  const history = result?.repository?.defaultBranchRef?.target?.history;
+                  if (!history) break;
+
+                  for (const c of history.nodes) {
+                    const login = c.author?.user?.login;
                     if (!isIncluded(login)) continue;
                     if (!contributorData[login]) {
-                      contributorData[login] = { additions: 0, deletions: 0, commits: 0, avatar: s.author?.avatar_url || '' };
+                      contributorData[login] = {
+                        additions: 0, deletions: 0, commits: 0,
+                        avatar: c.author?.user?.avatarUrl || '',
+                      };
+                    } else if (!contributorData[login].avatar && c.author?.user?.avatarUrl) {
+                      contributorData[login].avatar = c.author.user.avatarUrl;
                     }
-                    for (const week of s.weeks) {
-                      contributorData[login].additions += week.a || 0;
-                      contributorData[login].deletions += week.d || 0;
-                    }
+                    contributorData[login].additions += c.additions || 0;
+                    contributorData[login].deletions += c.deletions || 0;
                   }
-                } else {
-                  console.warn(`  getContributorsStats: exhausted retries for ${repo.name}`);
+
+                  hasNext = history.pageInfo.hasNextPage;
+                  cursor = history.pageInfo.endCursor;
+                  pages++;
+                  if (pages > 200) {
+                    console.warn(`  ${repo.name}: stopped GraphQL pagination at 200 pages`);
+                    break;
+                  }
                 }
               } catch (e) {
-                console.warn(`  getContributorsStats failed for ${repo.name}: ${e.message}`);
+                console.warn(`  GraphQL commit history failed for ${repo.name}: ${e.message}`);
               }
 
               // 4. Recent commit activity (also lazily computed, add retries)
