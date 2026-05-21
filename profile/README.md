@@ -53,19 +53,29 @@
 
 <!-- STATS_START -->
 
-| Metric | Value |
-|--------|-------|
-| **Repositories** | 32 (2 public, 30 private) |
-| **Estimated LOC** | 1.3M |
-| **Total Commits** | 7.6K |
-| **Commits (30d)** | 0 |
-| **Contributors** | 3 |
+| Metric | Value | Metric | Value |
+|--------|-------|--------|-------|
+| **Repositories** | 32 (2 public · 30 private) | **Pull Requests** | 50 (2 merged · 43 open) |
+| **Estimated LOC** | 1.3M | **Issues** | 0 (0 open · 0 closed) |
+| **Total Commits** | 7.6K | **Active days (1y)** | 152 |
+| **Commits (30d)** | 4.7K | **Avg / week (90d)** | 654 |
+| **Contributors** | 3 | **Peak weekday** | Mon |
 
 #### Languages
 
 ![Language Bar](assets/langbar.svg)
 
 ![Languages](assets/languages.svg)
+
+#### Activity (last 52 weeks)
+
+![Activity Heatmap](assets/heatmap.svg)
+
+<sub>Peak day: 2026-05-08 with 458 commits.</sub>
+
+#### Top Repositories
+
+![Top Repositories](assets/top-repos.svg)
 
 #### Contributor Insights
 

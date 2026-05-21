@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320" viewBox="0 0 480 320">
+    <style>text { dominant-baseline: central; }</style>
+    <rect width="100%" height="100%" rx="6" fill="#0d1117"/>
+    
+      <text x="160" y="16" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">🔒 private repo</text>
+      <rect x="168" y="7" width="202" height="13" rx="3" fill="#6e7681" opacity="0.85"/>
+      <text x="376" y="16" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">1.7K commits · 1.1K in 30d</text>
+      <text x="160" y="46" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">🔒 private repo</text>
+      <rect x="168" y="37" width="133.81483611270843" height="13" rx="3" fill="#6e7681" opacity="0.85"/>
+      <text x="307.81483611270846" y="46" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">1.2K commits · 803 in 30d</text>
+      <text x="160" y="76" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">🔒 private repo</text>
+      <rect x="168" y="67" width="108.25991949396206" height="13" rx="3" fill="#6e7681" opacity="0.85"/>
+      <text x="282.25991949396206" y="76" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">932 commits</text>
+      <text x="160" y="106" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">🔒 private repo</text>
+      <rect x="168" y="97" width="92.34617596319724" height="13" rx="3" fill="#6e7681" opacity="0.85"/>
+      <text x="266.34617596319725" y="106" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">795 commits · 451 in 30d</text>
+      <text x="160" y="136" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">🔒 private repo</text>
+      <rect x="168" y="127" width="90.13916043703279" height="13" rx="3" fill="#6e7681" opacity="0.85"/>
+      <text x="264.1391604370328" y="136" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">776 commits · 216 in 30d</text>
+      <text x="160" y="166" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">🔒 private repo</text>
+      <rect x="168" y="157" width="79.91719378953421" height="13" rx="3" fill="#6e7681" opacity="0.85"/>
+      <text x="253.91719378953422" y="166" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">688 commits · 162 in 30d</text>
+      <text x="160" y="196" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">🔒 private repo</text>
+      <rect x="168" y="187" width="79.91719378953421" height="13" rx="3" fill="#6e7681" opacity="0.85"/>
+      <text x="253.91719378953422" y="196" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">688 commits · 47 in 30d</text>
+      <text x="160" y="226" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">🔒 private repo</text>
+      <rect x="168" y="217" width="43.44335825186889" height="13" rx="3" fill="#6e7681" opacity="0.85"/>
+      <text x="217.4433582518689" y="226" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">374 commits · 356 in 30d</text>
+      <text x="160" y="256" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">🔒 private repo</text>
+      <rect x="168" y="247" width="41.700977573318" height="13" rx="3" fill="#6e7681" opacity="0.85"/>
+      <text x="215.700977573318" y="256" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">359 commits · 359 in 30d</text>
+      <text x="160" y="286" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">🔒 private repo</text>
+      <rect x="168" y="277" width="37.286946520989076" height="13" rx="3" fill="#6e7681" opacity="0.85"/>
+      <text x="211.2869465209891" y="286" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">321 commits · 321 in 30d</text>
+  </svg>
