@@ -58,7 +58,7 @@
 | **Repositories** | 32 (2 public · 30 private) | **Pull Requests** | 50 (2 merged · 43 open) |
 | **Estimated LOC** | 1.3M | **Issues** | 0 (0 open · 0 closed) |
 | **Total Commits** | 7.6K | **Active days (1y)** | 152 |
-| **Commits (30d)** | 4.7K | **Avg / week (90d)** | 654 |
+| **Commits (30d)** | 4.7K | **Avg / week (90d)** | 657 |
 | **Contributors** | 3 | **Peak weekday** | Mon |
 
 #### Languages
