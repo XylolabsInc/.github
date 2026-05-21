@@ -89,18 +89,14 @@ jobs:
               org, type: 'all', per_page: 100,
             });
 
-            const totalRepos = repos.length;
-            const publicRepos = repos.filter(r => !r.private).length;
-            const privateRepos = repos.filter(r => r.private).length;
-            console.log(`Repos: ${totalRepos} total (${publicRepos} public, ${privateRepos} private)`);
-            if (privateRepos === 0) {
+            const hasPrivateRepos = repos.some(r => r.private);
+            if (!hasPrivateRepos) {
               console.warn('No private repos found — ensure ORG_TOKEN has `repo` scope for private repo access');
             }
 
             const languageBytes = {};
             const contributorData = {}; // login -> { additions, deletions, commits, avatar }
             const dailyCommits = new Map(); // 'YYYY-MM-DD' -> count (org-wide, default branch)
-            const repoStats = {}; // name -> { total, recent, isPrivate, url }
             let recentCommits = 0;
             const now = new Date();
             const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000);
@@ -117,10 +113,6 @@ jobs:
 
             for (const repo of repos) {
               console.log(`Processing ${repo.name}${repo.private ? ' (private)' : ''}...`);
-              repoStats[repo.name] = {
-                total: 0, recent: 0,
-                isPrivate: repo.private, url: repo.html_url,
-              };
 
               // 1. Languages — works for private repos if token has `repo` scope
               try {
@@ -198,12 +190,6 @@ jobs:
                     const login = c.author?.user?.login;
                     const committedAt = c.committedDate ? new Date(c.committedDate) : null;
 
-                    // Per-repo totals count all commits (including bots) for accurate repo activity
-                    repoStats[repo.name].total++;
-                    if (committedAt && committedAt >= thirtyDaysAgo) {
-                      repoStats[repo.name].recent++;
-                    }
-
                     // Daily activity heatmap: include all commits in last year window
                     if (committedAt && committedAt >= oneYearAgo) {
                       const dateKey = c.committedDate.slice(0, 10);
@@ -237,33 +223,6 @@ jobs:
               } catch (e) {
                 console.warn(`  GraphQL commit history failed for ${repo.name}: ${e.message}`);
               }
-            }
-
-            // --- Org-wide PR / issue counts via GraphQL search ---
-            const issueStats = { prsMerged: 0, prsOpen: 0, prsClosed: 0, issuesOpen: 0, issuesClosed: 0 };
-            try {
-              const r = await github.graphql(`
-                query($q1: String!, $q2: String!, $q3: String!, $q4: String!, $q5: String!) {
-                  prsMerged:   search(query: $q1, type: ISSUE, first: 1) { issueCount }
-                  prsOpen:     search(query: $q2, type: ISSUE, first: 1) { issueCount }
-                  prsClosed:   search(query: $q3, type: ISSUE, first: 1) { issueCount }
-                  issuesOpen:  search(query: $q4, type: ISSUE, first: 1) { issueCount }
-                  issuesClosed:search(query: $q5, type: ISSUE, first: 1) { issueCount }
-                }
-              `, {
-                q1: `org:${org} is:pr is:merged`,
-                q2: `org:${org} is:pr is:open`,
-                q3: `org:${org} is:pr is:closed is:unmerged`,
-                q4: `org:${org} is:issue is:open`,
-                q5: `org:${org} is:issue is:closed`,
-              });
-              issueStats.prsMerged   = r.prsMerged?.issueCount   || 0;
-              issueStats.prsOpen     = r.prsOpen?.issueCount     || 0;
-              issueStats.prsClosed   = r.prsClosed?.issueCount   || 0;
-              issueStats.issuesOpen  = r.issuesOpen?.issueCount  || 0;
-              issueStats.issuesClosed= r.issuesClosed?.issueCount|| 0;
-            } catch (e) {
-              console.warn(`PR/issue search failed: ${e.message}`);
             }
 
             // Derive totals from contributor data (single source of truth)
@@ -453,41 +412,6 @@ jobs:
               </svg>`;
             }
 
-            // --- Top repositories SVG (by total commits; private names hidden) ---
-            const sortedRepos = Object.entries(repoStats)
-              .sort((a, b) => b[1].total - a[1].total || b[1].recent - a[1].recent)
-              .slice(0, 10);
-            const maxRepoCommits = Math.max(1, ...sortedRepos.map(([, s]) => s.total));
-
-            function generateTopReposSvg() {
-              const width = 480;
-              const rowHeight = 30;
-              const labelWidth = 160;
-              const valueWidth = 110;
-              const chartLeft = labelWidth + 8;
-              const chartWidth = width - chartLeft - valueWidth;
-              const height = sortedRepos.length * rowHeight + 20;
-
-              let rows = '';
-              sortedRepos.forEach(([name, s], i) => {
-                const y = i * rowHeight + 16;
-                const w = Math.max(2, (s.total / maxRepoCommits) * chartWidth);
-                const label = s.isPrivate ? `🔒 private repo` : name;
-                const recent = s.recent > 0 ? ` · ${formatNum(s.recent)} in 30d` : '';
-                const color = s.isPrivate ? '#6e7681' : '#3fb950';
-                rows += `
-                  <text x="${labelWidth}" y="${y}" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">${escapeXml(label)}</text>
-                  <rect x="${chartLeft}" y="${y - 9}" width="${w}" height="13" rx="3" fill="${color}" opacity="0.85"/>
-                  <text x="${chartLeft + w + 6}" y="${y}" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">${formatNum(s.total)} commits${recent}</text>`;
-              });
-
-              return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
-                <style>text { dominant-baseline: central; }</style>
-                <rect width="100%" height="100%" rx="6" fill="#0d1117"/>
-                ${rows}
-              </svg>`;
-            }
-
             // --- Derived velocity metrics ---
             let activeDays = 0;
             for (const v of dailyCommits.values()) if (v > 0) activeDays++;
@@ -523,7 +447,6 @@ jobs:
             fs.writeFileSync('profile/assets/contributors.svg', generateContributorSvg());
             fs.writeFileSync('profile/assets/langbar.svg', generateLangBarSvg());
             fs.writeFileSync('profile/assets/heatmap.svg', generateHeatmapSvg());
-            fs.writeFileSync('profile/assets/top-repos.svg', generateTopReposSvg());
 
             // --- Build repos markdown section ---
             const publicReposList = repoInfo.filter(r => !r.isPrivate);
@@ -537,26 +460,19 @@ jobs:
                 reposSection += `| [**${repo.name}**](${repo.url}) | ${desc} | ${lang} |\n`;
               }
             }
-            if (privateRepos > 0) {
-              reposSection += `\n<sub>${privateRepos} private repositories not shown</sub>\n`;
-            }
             reposSection += '\n';
 
             // --- Build stats markdown section ---
             const statsDate = now.toISOString().split('T')[0];
 
-            const totalPRs = issueStats.prsMerged + issueStats.prsOpen + issueStats.prsClosed;
-            const totalIssues = issueStats.issuesOpen + issueStats.issuesClosed;
-
             const stats = [
               '',
               `| Metric | Value | Metric | Value |`,
               `|--------|-------|--------|-------|`,
-              `| **Repositories** | ${totalRepos} (${publicRepos} public · ${privateRepos} private) | **Pull Requests** | ${formatNum(totalPRs)} (${formatNum(issueStats.prsMerged)} merged · ${formatNum(issueStats.prsOpen)} open) |`,
-              `| **Estimated LOC** | ${formatNum(estimatedLoc)} | **Issues** | ${formatNum(totalIssues)} (${formatNum(issueStats.issuesOpen)} open · ${formatNum(issueStats.issuesClosed)} closed) |`,
-              `| **Total Commits** | ${formatNum(totalCommits)} | **Active days (1y)** | ${formatNum(activeDays)} |`,
-              `| **Commits (30d)** | ${formatNum(recentCommits)} | **Avg / week (90d)** | ${formatNum(avgPerWeek)} |`,
-              `| **Contributors** | ${contributorCount} | **Peak weekday** | ${peakDowName} |`,
+              `| **Estimated LOC** | ${formatNum(estimatedLoc)} | **Active days (1y)** | ${formatNum(activeDays)} |`,
+              `| **Total Commits** | ${formatNum(totalCommits)} | **Avg / week (90d)** | ${formatNum(avgPerWeek)} |`,
+              `| **Commits (30d)** | ${formatNum(recentCommits)} | **Peak weekday** | ${peakDowName} |`,
+              `| **Contributors** | ${contributorCount} | | |`,
               '',
               `#### Languages`,
               '',
@@ -571,10 +487,6 @@ jobs:
               peakDay
                 ? `<sub>Peak day: ${peakDay[0]} with ${peakDay[1]} commits.</sub>`
                 : '',
-              '',
-              `#### Top Repositories`,
-              '',
-              `![Top Repositories](assets/top-repos.svg)`,
               '',
               `#### Contributor Insights`,
               '',
@@ -598,7 +510,6 @@ jobs:
             fs.writeFileSync(readmePath, readme);
 
             console.log('\n--- Summary ---');
-            console.log(`Repos: ${totalRepos} (${publicRepos} public, ${privateRepos} private)`);
             console.log(`LOC: ${formatNum(estimatedLoc)}`);
             console.log(`Contributors: ${contributorCount}`);
             console.log(`Total commits: ${formatNum(totalCommits)}`);

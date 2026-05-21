@@ -45,8 +45,6 @@
 | [**.github**](https://github.com/XylolabsInc/.github) |  |  |
 | [**Xylolabs-Knowledge-Engine**](https://github.com/XylolabsInc/Xylolabs-Knowledge-Engine) | Unified Knowledge Base Engine — continuously ingests Slack, Google Workspace, and Notion into a searchable AI-powered knowledge base with a Slack bot interface | `Go` |
 
-<sub>30 private repositories not shown</sub>
-
 <!-- REPOS_END -->
 
 ### Organization Stats
@@ -55,11 +53,10 @@
 
 | Metric | Value | Metric | Value |
 |--------|-------|--------|-------|
-| **Repositories** | 32 (2 public · 30 private) | **Pull Requests** | 50 (2 merged · 43 open) |
-| **Estimated LOC** | 1.3M | **Issues** | 0 (0 open · 0 closed) |
-| **Total Commits** | 7.6K | **Active days (1y)** | 152 |
-| **Commits (30d)** | 4.7K | **Avg / week (90d)** | 657 |
-| **Contributors** | 3 | **Peak weekday** | Mon |
+| **Estimated LOC** | 1.3M | **Active days (1y)** | 152 |
+| **Total Commits** | 7.6K | **Avg / week (90d)** | 657 |
+| **Commits (30d)** | 4.7K | **Peak weekday** | Mon |
+| **Contributors** | 3 | | |
 
 #### Languages
 
@@ -72,10 +69,6 @@
 ![Activity Heatmap](assets/heatmap.svg)
 
 <sub>Peak day: 2026-05-08 with 458 commits.</sub>
-
-#### Top Repositories
-
-![Top Repositories](assets/top-repos.svg)
 
 #### Contributor Insights
 
