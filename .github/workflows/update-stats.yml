@@ -97,6 +97,7 @@ jobs:
             const languageBytes = {};
             const contributorData = {}; // login -> { additions, deletions, commits, avatar }
             const dailyCommits = new Map(); // 'YYYY-MM-DD' -> count (org-wide, default branch)
+            const hourlyCommits = Array.from({ length: 7 }, () => new Array(24).fill(0)); // [dow Mon=0..Sun=6][hour 0..23] in KST
             let recentCommits = 0;
             const now = new Date();
             const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000);
@@ -190,10 +191,14 @@ jobs:
                     const login = c.author?.user?.login;
                     const committedAt = c.committedDate ? new Date(c.committedDate) : null;
 
-                    // Daily activity heatmap: include all commits in last year window
+                    // Daily activity heatmap + KST weekly punch card: last year window
                     if (committedAt && committedAt >= oneYearAgo) {
                       const dateKey = c.committedDate.slice(0, 10);
                       dailyCommits.set(dateKey, (dailyCommits.get(dateKey) || 0) + 1);
+
+                      const kst = new Date(committedAt.getTime() + 9 * 60 * 60 * 1000);
+                      const dow = (kst.getUTCDay() + 6) % 7; // Mon=0..Sun=6
+                      hourlyCommits[dow][kst.getUTCHours()]++;
                     }
 
                     if (!isIncluded(login)) continue;
@@ -412,6 +417,65 @@ jobs:
               </svg>`;
             }
 
+            // --- Weekly punch card SVG (7 days × 24 hours, KST) ---
+            function generatePunchCardSvg() {
+              const cellSize = 22;
+              const padLeft = 38;
+              const padRight = 14;
+              const padTop = 14;
+              const padBottom = 26;
+              const width = padLeft + 24 * cellSize + padRight;
+              const height = padTop + 7 * cellSize + padBottom;
+
+              let maxCount = 0;
+              for (let d = 0; d < 7; d++) {
+                for (let h = 0; h < 24; h++) {
+                  if (hourlyCommits[d][h] > maxCount) maxCount = hourlyCommits[d][h];
+                }
+              }
+              const maxR = (cellSize / 2) - 2;
+              const dayLabels = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+              const HEAT = ['#0e4429', '#006d32', '#26a641', '#39d353'];
+              const colorFor = (ratio) =>
+                ratio > 0.66 ? HEAT[3] : ratio > 0.33 ? HEAT[2] : ratio > 0.1 ? HEAT[1] : HEAT[0];
+
+              let cells = '';
+              for (let d = 0; d < 7; d++) {
+                for (let h = 0; h < 24; h++) {
+                  const n = hourlyCommits[d][h];
+                  if (n === 0) continue;
+                  const ratio = maxCount === 0 ? 0 : n / maxCount;
+                  const r = Math.max(1.5, Math.sqrt(ratio) * maxR);
+                  const x = padLeft + h * cellSize + cellSize / 2;
+                  const y = padTop + d * cellSize + cellSize / 2;
+                  cells += `<circle cx="${x}" cy="${y}" r="${r.toFixed(2)}" fill="${colorFor(ratio)}"><title>${dayLabels[d]} ${String(h).padStart(2,'0')}:00 KST · ${n} commit${n === 1 ? '' : 's'}</title></circle>`;
+                }
+              }
+
+              let yLabels = '';
+              for (let d = 0; d < 7; d++) {
+                const y = padTop + d * cellSize + cellSize / 2;
+                yLabels += `<text x="${padLeft - 8}" y="${y}" text-anchor="end" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">${dayLabels[d]}</text>`;
+              }
+
+              let xLabels = '';
+              const labelY = padTop + 7 * cellSize + 12;
+              for (let h = 0; h < 24; h += 4) {
+                const x = padLeft + h * cellSize + cellSize / 2;
+                xLabels += `<text x="${x}" y="${labelY}" text-anchor="middle" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">${String(h).padStart(2,'0')}</text>`;
+              }
+              const kstLabel = `<text x="${padLeft + 24 * cellSize + padRight - 2}" y="${labelY}" text-anchor="end" fill="#8b949e" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">KST</text>`;
+
+              return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+                <style>text { dominant-baseline: central; }</style>
+                <rect width="100%" height="100%" rx="6" fill="#0d1117"/>
+                ${yLabels}
+                ${cells}
+                ${xLabels}
+                ${kstLabel}
+              </svg>`;
+            }
+
             // --- Derived velocity metrics ---
             let activeDays = 0;
             for (const v of dailyCommits.values()) if (v > 0) activeDays++;
@@ -441,12 +505,25 @@ jobs:
             const peakDow = dowCounts.indexOf(Math.max(...dowCounts));
             const peakDowName = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][peakDow];
 
+            // Peak (dow, hour) in KST for punch card caption
+            let peakSlot = null;
+            for (let d = 0; d < 7; d++) {
+              for (let h = 0; h < 24; h++) {
+                const n = hourlyCommits[d][h];
+                if (!peakSlot || n > peakSlot.n) peakSlot = { d, h, n };
+              }
+            }
+            const peakSlotLabel = peakSlot && peakSlot.n > 0
+              ? `${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][peakSlot.d]} ${String(peakSlot.h).padStart(2, '0')}:00 KST (${peakSlot.n} commits)`
+              : null;
+
             // --- Write SVGs ---
             fs.mkdirSync('profile/assets', { recursive: true });
             fs.writeFileSync('profile/assets/languages.svg', generateLanguageSvg());
             fs.writeFileSync('profile/assets/contributors.svg', generateContributorSvg());
             fs.writeFileSync('profile/assets/langbar.svg', generateLangBarSvg());
             fs.writeFileSync('profile/assets/heatmap.svg', generateHeatmapSvg());
+            fs.writeFileSync('profile/assets/punchcard.svg', generatePunchCardSvg());
 
             // --- Build repos markdown section ---
             const publicReposList = repoInfo.filter(r => !r.isPrivate);
@@ -486,6 +563,14 @@ jobs:
               '',
               peakDay
                 ? `<sub>Peak day: ${peakDay[0]} with ${peakDay[1]} commits.</sub>`
+                : '',
+              '',
+              `#### Weekly Activity Pattern`,
+              '',
+              `![Weekly Punch Card](assets/punchcard.svg)`,
+              '',
+              peakSlotLabel
+                ? `<sub>Peak hour: ${peakSlotLabel}.</sub>`
                 : '',
               '',
               `#### Contributor Insights`,
