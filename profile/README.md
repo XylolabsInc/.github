@@ -80,7 +80,7 @@
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-06-02</sub>
+<sub>Last updated: 2026-06-03</sub>
 <!-- STATS_END -->
 
 ---
