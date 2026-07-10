@@ -606,6 +606,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Self-hosted runner may have commit.gpgsign=true globally without gpg installed
+          git config commit.gpgsign false
           git add profile/
           git diff --staged --quiet && echo "No changes" && exit 0
           git commit -m "chore: update organization stats"
