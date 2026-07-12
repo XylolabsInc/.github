@@ -54,7 +54,7 @@
 | Metric | Value | Metric | Value |
 |--------|-------|--------|-------|
 | **Estimated LOC** | 1.5M | **Active days (1y)** | 179 |
-| **Total Commits** | 11.6K | **Avg / week (90d)** | 758 |
+| **Total Commits** | 11.8K | **Avg / week (90d)** | 759 |
 | **Commits (30d)** | 2.5K | **Peak weekday** | Fri |
 | **Contributors** | 3 | | |
 
@@ -80,7 +80,7 @@
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-07-11</sub>
+<sub>Last updated: 2026-07-12</sub>
 <!-- STATS_END -->
 
 ---
