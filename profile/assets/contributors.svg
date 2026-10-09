@@ -4,14 +4,14 @@
     
       <text x="120" y="18" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="600">hletrd</text>
       <rect x="128" y="8" width="212" height="14" rx="3" fill="#3178c6" opacity="0.85"/>
-      <text x="346" y="16" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">20.1K commits · 4.9M net</text>
+      <text x="346" y="16" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">20.3K commits · 4.9M net</text>
       <text x="346" y="28" fill="#3fb950" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">+6.3M</text>
       <text x="390" y="28" fill="#f85149" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">-1.4M</text>
       <text x="120" y="54" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="600">angoang</text>
-      <rect x="128" y="44" width="7.6565898490535735" height="14" rx="3" fill="#dea584" opacity="0.85"/>
-      <text x="141.65658984905357" y="52" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">62 commits · 177.2K net</text>
-      <text x="141.65658984905357" y="64" fill="#3fb950" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">+182.0K</text>
-      <text x="185.65658984905357" y="64" fill="#f85149" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">-4.8K</text>
+      <rect x="128" y="44" width="7.64011769229239" height="14" rx="3" fill="#dea584" opacity="0.85"/>
+      <text x="141.6401176922924" y="52" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">63 commits · 177.5K net</text>
+      <text x="141.6401176922924" y="64" fill="#3fb950" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">+182.3K</text>
+      <text x="185.6401176922924" y="64" fill="#f85149" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">-4.8K</text>
       <text x="120" y="90" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="600">gamsasyo</text>
       <rect x="128" y="80" width="2" height="14" rx="3" fill="#00add8" opacity="0.85"/>
       <text x="136" y="88" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">17 commits · 4.6K net</text>
