@@ -4,32 +4,32 @@
     
       <text x="110" y="16" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">TypeScript</text>
       <rect x="118" y="6" width="212" height="14" rx="3" fill="#3178c6" opacity="0.9"/>
-      <text x="336" y="16" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">1.1M (42.6%)</text>
+      <text x="336" y="16" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">1.1M (42.5%)</text>
       <text x="110" y="48" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Python</text>
-      <rect x="118" y="38" width="81.67431242697023" height="14" rx="3" fill="#3572a5" opacity="0.9"/>
-      <text x="205.67431242697023" y="48" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">413.5K (16.4%)</text>
+      <rect x="118" y="38" width="81.90320756205288" height="14" rx="3" fill="#3572a5" opacity="0.9"/>
+      <text x="205.9032075620529" y="48" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">414.7K (16.4%)</text>
       <text x="110" y="80" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Rust</text>
-      <rect x="118" y="70" width="79.04148107756956" height="14" rx="3" fill="#dea584" opacity="0.9"/>
-      <text x="203.04148107756956" y="80" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">400.2K (15.9%)</text>
+      <rect x="118" y="70" width="79.02949006205364" height="14" rx="3" fill="#dea584" opacity="0.9"/>
+      <text x="203.02949006205364" y="80" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">400.2K (15.9%)</text>
       <text x="110" y="112" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">C</text>
-      <rect x="118" y="102" width="68.02543241361889" height="14" rx="3" fill="#555555" opacity="0.9"/>
-      <text x="192.0254324136189" y="112" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">344.4K (13.7%)</text>
+      <rect x="118" y="102" width="68.01511259161622" height="14" rx="3" fill="#555555" opacity="0.9"/>
+      <text x="192.01511259161623" y="112" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">344.4K (13.6%)</text>
       <text x="110" y="144" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">JavaScript</text>
-      <rect x="118" y="134" width="12.836068213477667" height="14" rx="3" fill="#f1e05a" opacity="0.9"/>
-      <text x="136.83606821347766" y="144" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">65.0K (2.6%)</text>
+      <rect x="118" y="134" width="12.857592809660161" height="14" rx="3" fill="#f1e05a" opacity="0.9"/>
+      <text x="136.85759280966016" y="144" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">65.1K (2.6%)</text>
       <text x="110" y="176" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Kotlin</text>
-      <rect x="118" y="166" width="12.450357652924737" height="14" rx="3" fill="#a97bff" opacity="0.9"/>
-      <text x="136.45035765292474" y="176" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">63.0K (2.5%)</text>
+      <rect x="118" y="166" width="12.448468867064962" height="14" rx="3" fill="#a97bff" opacity="0.9"/>
+      <text x="136.44846886706497" y="176" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">63.0K (2.5%)</text>
       <text x="110" y="208" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Shell</text>
-      <rect x="118" y="198" width="10.63762171723483" height="14" rx="3" fill="#89e051" opacity="0.9"/>
-      <text x="134.63762171723482" y="208" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">53.9K (2.1%)</text>
+      <rect x="118" y="198" width="10.77793539080162" height="14" rx="3" fill="#89e051" opacity="0.9"/>
+      <text x="134.77793539080162" y="208" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">54.6K (2.2%)</text>
       <text x="110" y="240" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Swift</text>
-      <rect x="118" y="230" width="10.119151863115578" height="14" rx="3" fill="#f05138" opacity="0.9"/>
-      <text x="134.11915186311558" y="240" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">51.2K (2.0%)</text>
+      <rect x="118" y="230" width="10.11761673364502" height="14" rx="3" fill="#f05138" opacity="0.9"/>
+      <text x="134.117616733645" y="240" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">51.2K (2.0%)</text>
       <text x="110" y="272" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">C++</text>
-      <rect x="118" y="262" width="6.749169412967977" height="14" rx="3" fill="#f34b7d" opacity="0.9"/>
-      <text x="130.74916941296797" y="272" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">34.2K (1.4%)</text>
+      <rect x="118" y="262" width="6.748145527863002" height="14" rx="3" fill="#f34b7d" opacity="0.9"/>
+      <text x="130.74814552786302" y="272" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">34.2K (1.4%)</text>
       <text x="110" y="304" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Linker Script</text>
-      <rect x="118" y="294" width="4.565408657438038" height="14" rx="3" fill="#8b8b8b" opacity="0.9"/>
-      <text x="128.56540865743804" y="304" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">23.1K (0.9%)</text>
+      <rect x="118" y="294" width="4.5647160605218176" height="14" rx="3" fill="#8b8b8b" opacity="0.9"/>
+      <text x="128.56471606052182" y="304" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">23.1K (0.9%)</text>
   </svg>

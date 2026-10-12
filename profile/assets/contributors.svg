@@ -8,10 +8,10 @@
       <text x="346" y="28" fill="#3fb950" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">+6.4M</text>
       <text x="390" y="28" fill="#f85149" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">-1.4M</text>
       <text x="120" y="54" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="600">angoang</text>
-      <rect x="128" y="44" width="7.5937066765022125" height="14" rx="3" fill="#dea584" opacity="0.85"/>
-      <text x="141.59370667650222" y="52" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">63 commits · 177.5K net</text>
-      <text x="141.59370667650222" y="64" fill="#3fb950" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">+182.3K</text>
-      <text x="185.59370667650222" y="64" fill="#f85149" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">-4.8K</text>
+      <rect x="128" y="44" width="7.585879228514699" height="14" rx="3" fill="#dea584" opacity="0.85"/>
+      <text x="141.5858792285147" y="52" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">63 commits · 177.5K net</text>
+      <text x="141.5858792285147" y="64" fill="#3fb950" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">+182.3K</text>
+      <text x="185.5858792285147" y="64" fill="#f85149" font-size="9" font-family="Segoe UI,Helvetica,Arial,sans-serif">-4.8K</text>
       <text x="120" y="90" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-weight="600">gamsasyo</text>
       <rect x="128" y="80" width="2" height="14" rx="3" fill="#00add8" opacity="0.85"/>
       <text x="136" y="88" fill="#8b949e" font-size="10" font-family="Segoe UI,Helvetica,Arial,sans-serif">17 commits · 4.6K net</text>
