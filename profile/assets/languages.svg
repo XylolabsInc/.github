@@ -6,23 +6,23 @@
       <rect x="118" y="6" width="212" height="14" rx="3" fill="#3178c6" opacity="0.9"/>
       <text x="336" y="16" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">1.1M (42.5%)</text>
       <text x="110" y="48" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Python</text>
-      <rect x="118" y="38" width="81.90320756205288" height="14" rx="3" fill="#3572a5" opacity="0.9"/>
-      <text x="205.9032075620529" y="48" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">414.7K (16.4%)</text>
+      <rect x="118" y="38" width="82.29172817615259" height="14" rx="3" fill="#3572a5" opacity="0.9"/>
+      <text x="206.2917281761526" y="48" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">416.7K (16.5%)</text>
       <text x="110" y="80" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Rust</text>
       <rect x="118" y="70" width="79.02949006205364" height="14" rx="3" fill="#dea584" opacity="0.9"/>
-      <text x="203.02949006205364" y="80" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">400.2K (15.9%)</text>
+      <text x="203.02949006205364" y="80" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">400.2K (15.8%)</text>
       <text x="110" y="112" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">C</text>
-      <rect x="118" y="102" width="68.01511259161622" height="14" rx="3" fill="#555555" opacity="0.9"/>
-      <text x="192.01511259161623" y="112" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">344.4K (13.6%)</text>
+      <rect x="118" y="102" width="68.02370842073451" height="14" rx="3" fill="#555555" opacity="0.9"/>
+      <text x="192.02370842073452" y="112" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">344.4K (13.6%)</text>
       <text x="110" y="144" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">JavaScript</text>
-      <rect x="118" y="134" width="12.857592809660161" height="14" rx="3" fill="#f1e05a" opacity="0.9"/>
-      <text x="136.85759280966016" y="144" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">65.1K (2.6%)</text>
+      <rect x="118" y="134" width="12.892874713668963" height="14" rx="3" fill="#f1e05a" opacity="0.9"/>
+      <text x="136.89287471366896" y="144" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">65.3K (2.6%)</text>
       <text x="110" y="176" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Kotlin</text>
       <rect x="118" y="166" width="12.448468867064962" height="14" rx="3" fill="#a97bff" opacity="0.9"/>
       <text x="136.44846886706497" y="176" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">63.0K (2.5%)</text>
       <text x="110" y="208" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Shell</text>
-      <rect x="118" y="198" width="10.77793539080162" height="14" rx="3" fill="#89e051" opacity="0.9"/>
-      <text x="134.77793539080162" y="208" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">54.6K (2.2%)</text>
+      <rect x="118" y="198" width="10.794539511034142" height="14" rx="3" fill="#89e051" opacity="0.9"/>
+      <text x="134.79453951103415" y="208" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">54.7K (2.2%)</text>
       <text x="110" y="240" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Swift</text>
       <rect x="118" y="230" width="10.11761673364502" height="14" rx="3" fill="#f05138" opacity="0.9"/>
       <text x="134.117616733645" y="240" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">51.2K (2.0%)</text>
