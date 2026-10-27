@@ -43,7 +43,7 @@
 | Repository | Description | Language |
 |-----------|-------------|----------|
 | [**.github**](https://github.com/XylolabsInc/.github) |  |  |
-| [**Xylolabs-Knowledge-Engine**](https://github.com/XylolabsInc/Xylolabs-Knowledge-Engine) | Unified Knowledge Base Engine — continuously ingests Slack, Google Workspace, and Notion into a searchable AI-powered knowledge base with a Slack bot interface | `Go` |
+| [**Xylolabs-Knowledge-Engine**](https://github.com/XylolabsInc/Xylolabs-Knowledge-Engine) | Unified Knowledge Base Engine — continuously ingests Slack, Google Workspace, and Notion into a searchable AI-powered knowledge base with a Slack bot interface | `JavaScript` |
 
 <!-- REPOS_END -->
 
@@ -53,9 +53,9 @@
 
 | Metric | Value | Metric | Value |
 |--------|-------|--------|-------|
-| **Estimated LOC** | 2.7M | **Active days (1y)** | 261 |
-| **Total Commits** | 21.8K | **Avg / week (90d)** | 643 |
-| **Commits (30d)** | 4.0K | **Peak weekday** | Sun |
+| **Estimated LOC** | 2.7M | **Active days (1y)** | 262 |
+| **Total Commits** | 22.0K | **Avg / week (90d)** | 648 |
+| **Commits (30d)** | 4.2K | **Peak weekday** | Sun |
 | **Contributors** | 3 | | |
 
 #### Languages
@@ -80,7 +80,7 @@
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-10-26</sub>
+<sub>Last updated: 2026-10-27</sub>
 <!-- STATS_END -->
 
 ---
