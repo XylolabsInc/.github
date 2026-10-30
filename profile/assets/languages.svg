@@ -4,25 +4,25 @@
     
       <text x="110" y="16" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">TypeScript</text>
       <rect x="118" y="6" width="212" height="14" rx="3" fill="#3178c6" opacity="0.9"/>
-      <text x="336" y="16" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">1.1M (40.5%)</text>
+      <text x="336" y="16" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">1.1M (40.4%)</text>
       <text x="110" y="48" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Python</text>
-      <rect x="118" y="38" width="95.72480333690667" height="14" rx="3" fill="#3572a5" opacity="0.9"/>
-      <text x="219.7248033369067" y="48" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">491.9K (18.3%)</text>
+      <rect x="118" y="38" width="96.10050470428718" height="14" rx="3" fill="#3572a5" opacity="0.9"/>
+      <text x="220.10050470428718" y="48" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">493.8K (18.3%)</text>
       <text x="110" y="80" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Rust</text>
       <rect x="118" y="70" width="81.75007189848327" height="14" rx="3" fill="#dea584" opacity="0.9"/>
       <text x="205.75007189848327" y="80" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">420.0K (15.6%)</text>
       <text x="110" y="112" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">C</text>
       <rect x="118" y="102" width="67.43574616556914" height="14" rx="3" fill="#555555" opacity="0.9"/>
-      <text x="191.43574616556913" y="112" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">346.5K (12.9%)</text>
+      <text x="191.43574616556913" y="112" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">346.5K (12.8%)</text>
       <text x="110" y="144" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">JavaScript</text>
-      <rect x="118" y="134" width="18.956471140048652" height="14" rx="3" fill="#f1e05a" opacity="0.9"/>
-      <text x="142.95647114004865" y="144" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">97.4K (3.6%)</text>
+      <rect x="118" y="134" width="19.01081420663079" height="14" rx="3" fill="#f1e05a" opacity="0.9"/>
+      <text x="143.01081420663078" y="144" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">97.7K (3.6%)</text>
       <text x="110" y="176" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Kotlin</text>
       <rect x="118" y="166" width="12.267520330958629" height="14" rx="3" fill="#a97bff" opacity="0.9"/>
       <text x="136.26752033095863" y="176" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">63.0K (2.3%)</text>
       <text x="110" y="208" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Shell</text>
-      <rect x="118" y="198" width="11.16117743081422" height="14" rx="3" fill="#89e051" opacity="0.9"/>
-      <text x="135.16117743081423" y="208" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">57.3K (2.1%)</text>
+      <rect x="118" y="198" width="11.581374038940874" height="14" rx="3" fill="#89e051" opacity="0.9"/>
+      <text x="135.58137403894088" y="208" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">59.5K (2.2%)</text>
       <text x="110" y="240" text-anchor="end" fill="#c9d1d9" font-size="12" font-family="Segoe UI,Helvetica,Arial,sans-serif">Swift</text>
       <rect x="118" y="230" width="9.970549013398582" height="14" rx="3" fill="#f05138" opacity="0.9"/>
       <text x="133.97054901339857" y="240" fill="#8b949e" font-size="11" font-family="Segoe UI,Helvetica,Arial,sans-serif">51.2K (1.9%)</text>

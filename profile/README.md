@@ -53,9 +53,9 @@
 
 | Metric | Value | Metric | Value |
 |--------|-------|--------|-------|
-| **Estimated LOC** | 2.8M | **Active days (1y)** | 264 |
-| **Total Commits** | 22.5K | **Avg / week (90d)** | 672 |
-| **Commits (30d)** | 4.6K | **Peak weekday** | Sun |
+| **Estimated LOC** | 2.8M | **Active days (1y)** | 265 |
+| **Total Commits** | 22.9K | **Avg / week (90d)** | 695 |
+| **Commits (30d)** | 4.9K | **Peak weekday** | Sun |
 | **Contributors** | 3 | | |
 
 #### Languages
@@ -74,13 +74,13 @@
 
 ![Weekly Punch Card](assets/punchcard.svg)
 
-<sub>Peak hour: Fri 00:00 KST (368 commits).</sub>
+<sub>Peak hour: Fri 00:00 KST (386 commits).</sub>
 
 #### Contributor Insights
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-10-29</sub>
+<sub>Last updated: 2026-10-30</sub>
 <!-- STATS_END -->
 
 ---
