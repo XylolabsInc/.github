@@ -7,17 +7,7 @@
   <h1>Xylolabs Inc.</h1>
   <p><strong>Edge Physical AI that catches equipment faults and runs robots.</strong></p>
   <p>Sensors, edge AI and robots for port cranes, power plants and factories.</p>
-  <br/>
-  <img src="https://img.shields.io/badge/Edge-Physical_AI-3178c6?style=for-the-badge" alt="Edge Physical AI" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/Equipment-Anomaly_Detection-00add8?style=for-the-badge" alt="Equipment anomaly detection" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/Battery-Fire_Early_Warning-dea584?style=for-the-badge" alt="Battery fire early warning" />
-  &nbsp;
-  <img src="https://img.shields.io/badge/Robotics-On--device_AI-3572a5?style=for-the-badge" alt="Robotics" />
-  <br/><br/>
   <img src="https://img.shields.io/badge/Rust-dea584?style=flat-square&logo=rust&logoColor=white" alt="Rust" />
-  <img src="https://img.shields.io/badge/Embassy-no__std-6e4c9e?style=flat-square" alt="Embassy" />
   <img src="https://img.shields.io/badge/Python-3572a5?style=flat-square&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/React-61dafb?style=flat-square&logo=react&logoColor=black" alt="React" />
@@ -33,7 +23,7 @@
 
 | Platform | What it does |
 |----------|--------------|
-| [**XyloZero**](https://xylolabs.com/en/solutions/xylo-zero/) | Reads sensor signals with PLC and drive data to catch equipment anomalies early, at the edge |
+| [**XyloZero**](https://xylolabs.com/en/solutions/xylo-zero/) | Edge AI that reads sensor signals with PLC and drive data to catch equipment anomalies early |
 | [**Battery Fire Early Detection**](https://xylolabs.com/en/solutions/battery-early-warning/) | Hears the acoustic precursors of thermal runaway in AGV, AMR and ESS batteries |
 | [**Autonomy & Robotics**](https://xylolabs.com/en/solutions/robotics/) | On-device AI for robot and drone patrols, VLA manipulation learning and port crane autonomy |
 
@@ -48,8 +38,7 @@
 
 - **Sensor hardware** — in-house multi-sensor boards with Rust `no_std` firmware
 - **Data platform** — streams high-resolution audio and sensor data from edge devices
-- **On-device AI** — anomaly models and LLMs that run on the device, not the cloud
-- **Robot learning** — VLA fine-tuning for manipulation, including audio input
+- **On-device AI** — anomaly models and LLMs running on our sensors and robots
 
 ### Company
 
@@ -107,5 +96,5 @@ Started as signal research at Seoul National University in 2019, incorporated in
 ---
 
 <div align="center">
-  <a href="https://xylolabs.com/en/">xylolabs.com</a> · <a href="https://xylolabs.com/en/contact/">Contact</a>
+  <a href="https://xylolabs.com/en/">xylolabs.com</a>
 </div>
