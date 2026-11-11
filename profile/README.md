@@ -15,6 +15,7 @@
   <br/><br/>
   <a href="https://xylolabs.com/en/"><img src="https://img.shields.io/badge/xylolabs.com-website-0d1117?style=flat-square&logo=safari&logoColor=white" alt="Website" /></a>
   <a href="https://xylolabs.com/en/contact/?type=poc"><img src="https://img.shields.io/badge/Request_a-PoC-0d1117?style=flat-square" alt="Request a PoC" /></a>
+  <a href="https://huggingface.co/Xylolabs"><img src="https://img.shields.io/badge/Hugging_Face-models-0d1117?style=flat-square&logo=huggingface&logoColor=white" alt="Hugging Face" /></a>
 </div>
 
 ---
@@ -39,6 +40,7 @@
 - **Sensor hardware** — in-house multi-sensor boards with Rust `no_std` firmware
 - **Data platform** — streams high-resolution audio and sensor data from edge devices
 - **On-device AI** — anomaly models and LLMs running on our sensors and robots
+- **Edge NPU optimization** — speech, sound and language models run on the NPUs inside our robots, not in the cloud: open LLMs quantized to block floating-point (BFP4/BFP8) with GPTQ, our own NPU kernels and an on-device runner. Open: [quantizer](https://github.com/XylolabsInc/tensix-bfp-gptq) · [kernels](https://github.com/XylolabsInc/tensix-kernels) · [models on Hugging Face](https://huggingface.co/Xylolabs)
 
 ### Company
 
