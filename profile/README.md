@@ -57,6 +57,7 @@ Started as signal research at Seoul National University in 2019, incorporated in
 | [**.github**](https://github.com/XylolabsInc/.github) |  |  |
 | [**tensix-bfp-gptq**](https://github.com/XylolabsInc/tensix-bfp-gptq) | Quantize Hugging Face LLMs to Tenstorrent TT-NN's BFP4/BFP8 formats (bfloat4_b, bfloat8_b) with GPTQ, for Tensix NPUs | `Python` |
 | [**tensix-kernels**](https://github.com/XylolabsInc/tensix-kernels) | Device kernels for LLM inference on Tenstorrent Tensix NPUs, launched from Python through ttnn | `C++` |
+| [**tensix-runner**](https://github.com/XylolabsInc/tensix-runner) | Run Hugging Face LLMs on Tenstorrent Tensix NPUs with TT-NN | `Python` |
 | [**Xylolabs-Knowledge-Engine**](https://github.com/XylolabsInc/Xylolabs-Knowledge-Engine) | Unified Knowledge Base Engine — continuously ingests Slack, Google Workspace, and Notion into a searchable AI-powered knowledge base with a Slack bot interface | `JavaScript` |
 
 <!-- REPOS_END -->
@@ -68,8 +69,8 @@ Started as signal research at Seoul National University in 2019, incorporated in
 | Metric | Value | Metric | Value |
 |--------|-------|--------|-------|
 | **Estimated LOC** | 7.0M | **Active days (1y)** | 366 |
-| **Total Commits** | 31.8K | **Avg / week (90d)** | 1.3K |
-| **Commits (30d)** | 11.5K | **Peak weekday** | Wed |
+| **Total Commits** | 32.9K | **Avg / week (90d)** | 1.4K |
+| **Commits (30d)** | 12.4K | **Peak weekday** | Wed |
 | **Contributors** | 4 | | |
 
 #### Languages
@@ -94,7 +95,7 @@ Started as signal research at Seoul National University in 2019, incorporated in
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-11-12</sub>
+<sub>Last updated: 2026-11-13</sub>
 <!-- STATS_END -->
 
 ---
