@@ -39,8 +39,8 @@
 
 - **Sensor hardware** — in-house multi-sensor boards with Rust `no_std` firmware
 - **Data platform** — streams high-resolution audio and sensor data from edge devices
-- **On-device AI** — anomaly models and LLMs running on our sensors and robots
-- **Edge NPU optimization** — speech, sound and language models run on the NPUs inside our robots, not in the cloud: open LLMs quantized to block floating-point (BFP4/BFP8) with GPTQ, our own NPU kernels and an on-device runner. Open: [quantizer](https://github.com/XylolabsInc/tensix-bfp-gptq) · [kernels](https://github.com/XylolabsInc/tensix-kernels) · [models on Hugging Face](https://huggingface.co/Xylolabs)
+- **On-device AI** — anomaly models running on our sensors, and LLMs in our robot development kits
+- **Edge NPU optimization** — speech, sound and language models run on the Tensix NPU in our robot development kits, not in the cloud: open LLMs quantized to block floating-point (BFP4/BFP8) with GPTQ, our own NPU kernels and an on-device runner. Open: [quantizer](https://github.com/XylolabsInc/tensix-bfp-gptq) · [kernels](https://github.com/XylolabsInc/tensix-kernels) · [runner](https://github.com/XylolabsInc/tensix-runner) · [models on Hugging Face](https://huggingface.co/Xylolabs)
 
 ### Company
 
