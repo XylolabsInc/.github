@@ -68,9 +68,9 @@ Started as signal research at Seoul National University in 2019, incorporated in
 
 | Metric | Value | Metric | Value |
 |--------|-------|--------|-------|
-| **Estimated LOC** | 7.5M | **Active days (1y)** | 306 |
-| **Total Commits** | 37.3K | **Avg / week (90d)** | 1.8K |
-| **Commits (30d)** | 16.1K | **Peak weekday** | Tue |
+| **Estimated LOC** | 7.6M | **Active days (1y)** | 306 |
+| **Total Commits** | 37.7K | **Avg / week (90d)** | 1.8K |
+| **Commits (30d)** | 16.5K | **Peak weekday** | Tue |
 | **Contributors** | 4 | | |
 
 #### Languages
@@ -89,13 +89,13 @@ Started as signal research at Seoul National University in 2019, incorporated in
 
 ![Weekly Punch Card](assets/punchcard.svg)
 
-<sub>Peak hour: Tue 16:00 KST (625 commits).</sub>
+<sub>Peak hour: Tue 16:00 KST (629 commits).</sub>
 
 #### Contributor Insights
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-11-20</sub>
+<sub>Last updated: 2026-11-21</sub>
 <!-- STATS_END -->
 
 ---
