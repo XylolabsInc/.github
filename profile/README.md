@@ -15,7 +15,7 @@
   <br/><br/>
   <a href="https://xylolabs.com/en/"><img src="https://img.shields.io/badge/xylolabs.com-website-0d1117?style=flat-square&logo=safari&logoColor=white" alt="Website" /></a>
   <a href="https://xylolabs.com/en/contact/?type=poc"><img src="https://img.shields.io/badge/Request_a-PoC-0d1117?style=flat-square" alt="Request a PoC" /></a>
-  <a href="https://huggingface.co/Xylolabs"><img src="https://img.shields.io/badge/Hugging_Face-models-0d1117?style=flat-square&logo=huggingface&logoColor=white" alt="Hugging Face" /></a>
+  <a href="https://huggingface.co/Xylolabs"><img src="https://img.shields.io/badge/Hugging_Face-models-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face" /></a>
 </div>
 
 ---
