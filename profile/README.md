@@ -55,6 +55,8 @@ Started as signal research at Seoul National University in 2019, incorporated in
 | Repository | Description | Language |
 |-----------|-------------|----------|
 | [**.github**](https://github.com/XylolabsInc/.github) |  |  |
+| [**llama.cpp**](https://github.com/XylolabsInc/llama.cpp) | LLM inference in C/C++ |  |
+| [**omnievie-mlx**](https://github.com/XylolabsInc/omnievie-mlx) | OmniEVIE multi-vector retrieval (text, images, documents) in MLX on mlx-vlm | `Python` |
 | [**tensix-bfp-gptq**](https://github.com/XylolabsInc/tensix-bfp-gptq) | Quantize Hugging Face LLMs to Tenstorrent TT-NN's BFP4/BFP8 formats (bfloat4_b, bfloat8_b) with GPTQ, for Tensix NPUs | `Python` |
 | [**tensix-kernels**](https://github.com/XylolabsInc/tensix-kernels) | Device kernels for LLM inference on Tenstorrent Tensix NPUs, launched from Python through ttnn | `C++` |
 | [**tensix-runner**](https://github.com/XylolabsInc/tensix-runner) | Run Hugging Face LLMs on Tenstorrent Tensix NPUs with TT-NN | `Python` |
@@ -68,9 +70,9 @@ Started as signal research at Seoul National University in 2019, incorporated in
 
 | Metric | Value | Metric | Value |
 |--------|-------|--------|-------|
-| **Estimated LOC** | 7.7M | **Active days (1y)** | 310 |
-| **Total Commits** | 39.4K | **Avg / week (90d)** | 1.9K |
-| **Commits (30d)** | 17.1K | **Peak weekday** | Tue |
+| **Estimated LOC** | 9.0M | **Active days (1y)** | 366 |
+| **Total Commits** | 39.6K | **Avg / week (90d)** | 1.9K |
+| **Commits (30d)** | 16.0K | **Peak weekday** | Tue |
 | **Contributors** | 4 | | |
 
 #### Languages
@@ -83,19 +85,19 @@ Started as signal research at Seoul National University in 2019, incorporated in
 
 ![Activity Heatmap](assets/heatmap.svg)
 
-<sub>Peak day: 2026-11-10 with 1585 commits.</sub>
+<sub>Peak day: 2026-11-10 with 1560 commits.</sub>
 
 #### Weekly Activity Pattern
 
 ![Weekly Punch Card](assets/punchcard.svg)
 
-<sub>Peak hour: Tue 16:00 KST (628 commits).</sub>
+<sub>Peak hour: Tue 16:00 KST (696 commits).</sub>
 
 #### Contributor Insights
 
 ![Contributors](assets/contributors.svg)
 
-<sub>Last updated: 2026-11-27</sub>
+<sub>Last updated: 2026-11-28</sub>
 <!-- STATS_END -->
 
 ---
